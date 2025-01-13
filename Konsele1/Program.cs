@@ -3,35 +3,53 @@
 
 
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Konsole1
 {
     internal class Program
     {
-        enum Schwierigkeit
-        {
-            Normal = 1,
-            Elite = 2,
-            Boss = 4
-        }
+
         static void Main(string[] args)
         {
-            Schwierigkeit gegnerSchwierigkeit = (Schwierigkeit)3;
-
-            switch (gegnerSchwierigkeit)
+            var zahlen = new List<int>();
+            for (int i = 0; i <= 10; i++)
             {
-                case Schwierigkeit.Normal:
-                    Console.WriteLine("Das ist ein normaler Gegner");
-                    break;
-                case Schwierigkeit.Elite:
-                    Console.WriteLine("Das ist ein Elite Gegner");
-                    break;
-                case Schwierigkeit.Boss:
-                    Console.WriteLine("Das ist ein Boss Gegner");
-                    break;
-                default:
-                    Console.WriteLine("Den Gegner kenne ich nicht");
-                    break;
+                zahlen.Add(i);
             }
+            var ergebnis = Addieren(zahlen);
+            Console.WriteLine(ergebnis);
+
+        }
+
+        public static int Addieren(int zahl1, int zahl2)
+        {
+            return zahl1 + zahl2;
+        }
+
+        public static int Addieren(int zahlMax)
+        {
+            var ergebnis = 0;
+            for (int i = 0; i<= zahlMax; i++)
+            {
+                ergebnis += i;
+            }
+            return ergebnis;
+        }
+
+        public static int Addieren(int zahl1, int zahl2, int zahl3)
+        {
+            return zahl1 + zahl2 + zahl3;
+        }
+
+        public static int Addieren(IEnumerable<int> zahlen)
+        {
+            var ergebnis = 0;
+            foreach (var zahl in zahlen) 
+            { 
+                ergebnis += zahl;
+            }
+            return ergebnis;
         }
 
     }
