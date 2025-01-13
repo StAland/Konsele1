@@ -7,32 +7,32 @@ namespace Konsole1
 {
     internal class Program
     {
+        enum Schwierigkeit
+        {
+            Normal = 1,
+            Elite = 2,
+            Boss = 4
+        }
         static void Main(string[] args)
         {
-            var zahl1string = NutzereingabeAbfragen("Bitte eine Zahl eingeben");
-            var zahl2string = NutzereingabeAbfragen("Bitte eine zweite Zahl eingeben");
-            int zahl1;
-            int zahl2;
-            if(int.TryParse(zahl1string, out zahl1) && int.TryParse(zahl2string, out zahl2))
+            Schwierigkeit gegnerSchwierigkeit = (Schwierigkeit)3;
+
+            switch (gegnerSchwierigkeit)
             {
-                int zahl3 = zahl1 + zahl2;
-                Console.WriteLine($"{zahl1} + {zahl2} = {zahl3}");
-            }
-            else
-            {
-                Console.WriteLine("Keine Zahlen eingegeben");
+                case Schwierigkeit.Normal:
+                    Console.WriteLine("Das ist ein normaler Gegner");
+                    break;
+                case Schwierigkeit.Elite:
+                    Console.WriteLine("Das ist ein Elite Gegner");
+                    break;
+                case Schwierigkeit.Boss:
+                    Console.WriteLine("Das ist ein Boss Gegner");
+                    break;
+                default:
+                    Console.WriteLine("Den Gegner kenne ich nicht");
+                    break;
             }
         }
 
-        public static string NutzereingabeAbfragen(string eingabe)
-        {
-            Console.WriteLine(eingabe);
-            var zahl = Console.ReadLine();
-            if (zahl != null)
-            {
-                return zahl;
-            }
-            return "";
-        }
     }
 }
