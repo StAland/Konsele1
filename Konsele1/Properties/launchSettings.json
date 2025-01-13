@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Konsele1": {
+      "commandName": "Project",
+      "commandLineArgs": "\"Hello World\""
+    }
+  }
+}

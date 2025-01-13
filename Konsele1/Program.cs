@@ -11,8 +11,10 @@ namespace Konsole1
         {
 
             sbyte zahl1 = 127;
+            bool geklappt = sbyte.TryParse("Hallo", out zahl1);
             short zahl2 = 32767;
-            int zahl3 = 2147483647;
+            int zahl3 = 214748364;
+            
             long zahl4 = 9223372036854775807;
             byte zahl5 = 255;
             ushort zahl6 = 65535;
@@ -34,7 +36,14 @@ namespace Konsole1
             bool var3 = var1 && var2;
             bool var4 = var2 || var1;
 
-            Console.WriteLine(var4);
+            string var5 = "Hallo \t \\ \n \" Hallo test";
+            char var6 = '\n';
+            string var7 = $" {var1} && {var2} = {var3}";
+
+            DateTime zeit = DateTime.Parse("2024-12-24");
+            TimeSpan zeitspanne = TimeSpan.FromDays(2);
+
+            Console.WriteLine(zahl2);
 
         }
     }
