@@ -1,6 +1,6 @@
 ﻿namespace Konsele1
 {
-    public class Haus
+    public class Haus : Gebaeude
     {
         private int _rooms;
         public int Rooms
@@ -18,19 +18,25 @@
             }
         }
 
-        public string Farbe { get; set; }
-
-        public Haus(string farbe, int rooms)
+        public Haus(int flaeche, Gebauedefarbe farbe, int rooms) : base(flaeche, farbe) 
         {
-            Farbe = farbe;
-            Rooms = rooms;
+            _rooms = rooms;
         }
 
-        public Haus(string farbe) 
+        public Haus(int flaeche, int rooms) : base(flaeche)
         {
-            Farbe = farbe;
-            Rooms=4;
+            _rooms = rooms;
         }
 
+        public override void ZeigeGebauede()
+        {
+            Console.WriteLine($"Raueme: {Rooms}");
+            base.ZeigeGebauede();
+        }
+
+        public override void Aufschliessen()
+        {
+            Console.WriteLine("Das Haus wurde aufgeschlossen");
+        }
     }
 }

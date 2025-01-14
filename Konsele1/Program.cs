@@ -13,19 +13,23 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            Bruch bruch1 = new Bruch(3, 4);
-            Bruch bruch2 = new Bruch(2, 5);
+            var haus = new Haus(15, Gebauedefarbe.weiss, 3);
+            var kiste = new Kiste();
+            var kiste2 = new Kiste();
+            var haus2 = new Haus(20, 3);
 
-            Bruch summe = bruch1 + bruch2;
-            Bruch differenz = bruch1.Subtrahieren(bruch2);
-            Bruch produkt = bruch1.Multiplizieren(bruch2);
-            Bruch quotient = bruch1.Dividieren(bruch2);
+            var aufschliessenListe = new List<IAufschliessbar>
+            {
+                haus,
+                kiste2,
+                kiste,
+                haus2
+            };
 
-            Console.WriteLine($"Summe: {summe}");
-            Console.WriteLine($"Differenz: {differenz}");
-            Console.WriteLine($"Produkt: {produkt}");
-            Console.WriteLine($"Quotient: {quotient}");
-
+            foreach ( var au in aufschliessenListe)
+            {
+                au.Aufschliessen();
+            }
         }
        
 
