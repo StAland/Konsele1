@@ -3,6 +3,7 @@
 
 
 
+using Konsele1;
 using System.ComponentModel.DataAnnotations;
 
 namespace Konsole1
@@ -12,14 +13,13 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var zahlen = new List<int>();
-            for (int i = 0; i <= 10; i++)
-            {
-                zahlen.Add(i);
-            }
-            var ergebnis = Addieren(zahlen);
-            Console.WriteLine(ergebnis);
-
+            var meinHaus = new Haus("rot", 4);
+            var hausFarbe = meinHaus.Farbe;
+            Console.WriteLine(hausFarbe);
+            meinHaus.Farbe = "gelb";
+            Console.WriteLine(meinHaus.Farbe);
+            meinHaus.Rooms = 3;
+            
         }
 
         public static int Addieren(int zahl1, int zahl2)
