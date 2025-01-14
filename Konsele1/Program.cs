@@ -13,44 +13,21 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var meinHaus = new Haus("rot", 4);
-            var hausFarbe = meinHaus.Farbe;
-            Console.WriteLine(hausFarbe);
-            meinHaus.Farbe = "gelb";
-            Console.WriteLine(meinHaus.Farbe);
-            meinHaus.Rooms = 3;
-            
-        }
+            Bruch bruch1 = new Bruch(3, 4);
+            Bruch bruch2 = new Bruch(2, 5);
 
-        public static int Addieren(int zahl1, int zahl2)
-        {
-            return zahl1 + zahl2;
-        }
+            Bruch summe = bruch1 + bruch2;
+            Bruch differenz = bruch1.Subtrahieren(bruch2);
+            Bruch produkt = bruch1.Multiplizieren(bruch2);
+            Bruch quotient = bruch1.Dividieren(bruch2);
 
-        public static int Addieren(int zahlMax)
-        {
-            var ergebnis = 0;
-            for (int i = 0; i<= zahlMax; i++)
-            {
-                ergebnis += i;
-            }
-            return ergebnis;
-        }
+            Console.WriteLine($"Summe: {summe}");
+            Console.WriteLine($"Differenz: {differenz}");
+            Console.WriteLine($"Produkt: {produkt}");
+            Console.WriteLine($"Quotient: {quotient}");
 
-        public static int Addieren(int zahl1, int zahl2, int zahl3)
-        {
-            return zahl1 + zahl2 + zahl3;
         }
-
-        public static int Addieren(IEnumerable<int> zahlen)
-        {
-            var ergebnis = 0;
-            foreach (var zahl in zahlen) 
-            { 
-                ergebnis += zahl;
-            }
-            return ergebnis;
-        }
+       
 
     }
 }
