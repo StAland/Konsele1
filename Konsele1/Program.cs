@@ -13,23 +13,9 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var haus = new Haus(15, Gebauedefarbe.weiss, 3);
-            var kiste = new Kiste();
-            var kiste2 = new Kiste();
-            var haus2 = new Haus(20, 3);
-
-            var aufschliessenListe = new List<IAufschliessbar>
-            {
-                haus,
-                kiste2,
-                kiste,
-                haus2
-            };
-
-            foreach ( var au in aufschliessenListe)
-            {
-                au.Aufschliessen();
-            }
+            var bruch = new Bruch(4, 5);
+            var bruch2 = bruch.TauscheZahlerNenner();
+            Console.WriteLine(bruch2);
         }
        
 
