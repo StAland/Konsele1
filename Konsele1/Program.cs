@@ -13,9 +13,23 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var bruch = new Bruch(4, 5);
-            var bruch2 = bruch.TauscheZahlerNenner();
-            Console.WriteLine(bruch2);
+            var linkedList = new LinkedListElement<int>(4);
+            linkedList.Add(1);
+            linkedList.Add(2);
+            linkedList.Add(7);
+            linkedList.Add(4);
+            Console.WriteLine(linkedList.ToString());
+            linkedList.Insert(7);
+            Console.WriteLine(linkedList.ToString());
+
+            var linkedList2 = linkedList.Next.Next;
+            Console.WriteLine(linkedList2.ToString());
+
+            var linkedStringList = new LinkedListElement<string>("Hallo");
+            linkedStringList.Add("a");
+            linkedStringList.Add("b");
+            linkedStringList.Insert("c");
+            Console.WriteLine(linkedStringList.ToString());
         }
        
 
