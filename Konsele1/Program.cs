@@ -13,23 +13,14 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var linkedList = new LinkedListElement<int>(4);
-            linkedList.Add(1);
-            linkedList.Add(2);
-            linkedList.Add(7);
-            linkedList.Add(4);
-            Console.WriteLine(linkedList.ToString());
-            linkedList.Insert(7);
-            Console.WriteLine(linkedList.ToString());
-
-            var linkedList2 = linkedList.Next.Next;
-            Console.WriteLine(linkedList2.ToString());
-
-            var linkedStringList = new LinkedListElement<string>("Hallo");
-            linkedStringList.Add("a");
-            linkedStringList.Add("b");
-            linkedStringList.Insert("c");
-            Console.WriteLine(linkedStringList.ToString());
+            var kiste = new Kiste(50);
+            var tree = new Tree<Kiste>(kiste);
+            tree.Add(new Kiste(30));
+            tree.Add(new Kiste(40));
+            tree.Add(new Kiste(20));
+            tree.Add(new Kiste(45));
+            tree.Add(new Kiste(60));
+            tree.Add(new Kiste(55));
         }
        
 
