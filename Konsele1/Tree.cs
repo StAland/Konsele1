@@ -10,14 +10,21 @@ namespace Konsele1
     {
         public TreeNode<T> Root { get; set; }
 
-        public Tree(T value) 
+        public Tree(T value)
         {
             Root = new TreeNode<T>(value);
         }
 
         public void Add(T value)
         {
-            Root.Add(value);
+            Root = Root.Add(value);
+        }
+
+        public void Balance()
+        {
+            Root = Root.Balance();
         }
     }
+
+
 }
