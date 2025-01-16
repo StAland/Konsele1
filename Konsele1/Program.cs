@@ -13,17 +13,24 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var bruechedict = new Dictionary<int, int>();
-            bruechedict.Add(5, 3);
-            bruechedict.Add(7, 2);
-            bruechedict.Add(2, 9);
-            bruechedict.Add(4, 3);
-
-            var brueche = bruechedict.Select(item => new Bruch(item.Key, item.Value));
-            var bruchMitNenner3 = brueche.First(item => item.Nenner == 3);
-            foreach (var item in brueche)
+            var ints = new int[] { 1, 2, 3 };
+            
+            try
             {
-                Console.WriteLine(item);
+                var zahhl = ints[4];
+            }
+            catch (IndexOutOfRangeException e)
+            {
+                Console.WriteLine(e);
+                //throw;
+            }
+
+
+
+            int zahl2;
+            if (!int.TryParse("Hallo", out zahl2))
+            {
+
             }
         }     
     }
