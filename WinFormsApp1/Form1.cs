@@ -10,6 +10,7 @@ namespace WinFormsApp1
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             lblEingabe.Text = $"Du hast \"{txtEingabe.Text}\" eingegeben";
+            
         }
     }
 }
