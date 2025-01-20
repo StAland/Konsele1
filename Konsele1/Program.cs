@@ -16,26 +16,8 @@ namespace Konsole1
         {
             var path = "config.txt";
 
-            string[] lines =
-            {
-                "Benutzer: Steffen",
-                "weitere Zeilen",
-                "meine neue Zeile",
-                "jetzt mit Stream"
-            };
-
-            var dateiInfo = new FileInfo(path);
-            using (var stream = dateiInfo.OpenWrite())
-            {
-                using (var writer  = new StreamWriter(stream))
-                {
-                    foreach (var line in lines)
-                    {
-                        writer.WriteLine(line);
-                    }
-                }
-                
-            }
+            var text = "\r\nmeine neue Zeile";
+            File.AppendAllText(path, text);
         }     
     }
 }
