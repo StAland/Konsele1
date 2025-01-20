@@ -16,10 +16,18 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var serialisierer = new XmlSerializer(typeof(List<Person>));
-            using (var fileStream = new FileStream("Persons.xml", FileMode.Create))
+            List<Person> personen = null;
+            var rootAttribut = new XmlRootAttribute("personen");
+            var serialisierer = new XmlSerializer(typeof(List<Person>), rootAttribut);
+            using (var filestream = new FileStream("Persons.xml", FileMode.Open))
             {
-                serialisierer.Serialize(fileStream, Person.Personen);
+                personen = (List<Person>)serialisierer.Deserialize(filestream);
+
+            }
+
+            foreach (var person in personen)
+            {
+                Console.WriteLine($"{person.ID}: {person.Vorname} {person.Name}");
             }
         }
             
