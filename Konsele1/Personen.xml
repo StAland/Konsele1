@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Personen>
+	<Person Id="1">
+		<Vorname>Robert</Vorname>
+		<Nachname>Schiefele</Nachname>
+	</Person>
+	<Person Id="2">
+		<Vorname>Max</Vorname>
+		<Nachname>Mustermann</Nachname>
+	</Person>
+	<Person Id="3">
+		<Vorname>Marta</Vorname>
+		<Nachname>Musterfrau</Nachname>
+	</Person>
+</Personen>
