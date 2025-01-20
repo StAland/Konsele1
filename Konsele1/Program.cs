@@ -5,6 +5,7 @@
 
 using Konsele1;
 using System.ComponentModel.DataAnnotations;
+using System.IO;
 
 namespace Konsole1
 {
@@ -13,10 +14,14 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var text = File.ReadAllLines("config.txt");
-            foreach (var line in text)
+            var dateiInfo = new FileInfo("config.txt");
+            using(var reader  = dateiInfo.OpenText())
             {
-                Console.WriteLine(line);
+                while(!reader.EndOfStream)
+                {
+                    var zeile = reader.ReadLine();
+                    Console.WriteLine(zeile);
+                }
             }
         }     
     }
