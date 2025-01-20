@@ -14,9 +14,16 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var text = File.ReadAllText("config.txt");
-            text += "\r\nhier ist ne weitere Zeile";
-            File.WriteAllText("config.txt", text);
+            var path = "config.txt";
+
+            string[] lines =
+            {
+                "Benutzer: Steffen",
+                "weitere Zeilen",
+                "meine neue Zeile"
+            };
+
+            File.WriteAllLines(path, lines);
         }     
     }
 }
