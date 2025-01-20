@@ -20,10 +20,22 @@ namespace Konsole1
             {
                 "Benutzer: Steffen",
                 "weitere Zeilen",
-                "meine neue Zeile"
+                "meine neue Zeile",
+                "jetzt mit Stream"
             };
 
-            File.WriteAllLines(path, lines);
+            var dateiInfo = new FileInfo(path);
+            using (var stream = dateiInfo.OpenWrite())
+            {
+                using (var writer  = new StreamWriter(stream))
+                {
+                    foreach (var line in lines)
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+                
+            }
         }     
     }
 }
