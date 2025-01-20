@@ -14,15 +14,9 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var dateiInfo = new FileInfo("config.txt");
-            using(var reader  = dateiInfo.OpenText())
-            {
-                while(!reader.EndOfStream)
-                {
-                    var zeile = reader.ReadLine();
-                    Console.WriteLine(zeile);
-                }
-            }
+            var text = File.ReadAllText("config.txt");
+            text += "\r\nhier ist ne weitere Zeile";
+            File.WriteAllText("config.txt", text);
         }     
     }
 }
