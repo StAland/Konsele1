@@ -24,6 +24,25 @@ namespace Konsole1
                 var nachname = person.Descendants("Nachname").First().Value;
                 Console.WriteLine($"ID: {id}, {vorname} {nachname}");
             }
+
+            var wurzelNeu = new XElement("Personen",
+                new XElement("Person",
+                    new XAttribute("Id", "1"),
+                    new XElement("Vorname", "Robert"),
+                    new XElement("Nachname", "Schiefele")
+                ),
+                new XElement("Person",
+                    new XAttribute("Id", "2"),
+                    new XElement("Vorname", "Max"),
+                    new XElement("Nachname", "Mustermann")
+                ),
+                new XElement("Person",
+                    new XAttribute("Id", "3"),
+                    new XElement("Vorname", "Marta"),
+                    new XElement("Nachname", "Musterfrau")
+                )
+                );
+            wurzelNeu.Save("Personen2.xml");
         }     
     }
 }
