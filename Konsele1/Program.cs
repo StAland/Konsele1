@@ -14,7 +14,7 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var path = "config.txt";
+            var path = "config2.txt";
 
             var text = "\r\nmeine neue Zeile";
             File.AppendAllText(path, text);
