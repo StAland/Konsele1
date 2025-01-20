@@ -13,24 +13,10 @@ namespace Konsole1
 
         static void Main(string[] args)
         {
-            var ints = new int[] { 1, 2, 3 };
-            
-            try
+            var text = File.ReadAllLines("config.txt");
+            foreach (var line in text)
             {
-                var zahhl = ints[4];
-            }
-            catch (IndexOutOfRangeException e)
-            {
-                Console.WriteLine(e);
-                //throw;
-            }
-
-
-
-            int zahl2;
-            if (!int.TryParse("Hallo", out zahl2))
-            {
-
+                Console.WriteLine(line);
             }
         }     
     }

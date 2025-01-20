@@ -1,4 +1,6 @@
-﻿namespace Konsele1
+﻿using ClassLibrary1;
+
+namespace Konsele1
 {
     public class Haus : Gebaeude
     {

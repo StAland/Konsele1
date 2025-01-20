@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -36,7 +37,13 @@
             button3 = new Button();
             button4 = new Button();
             textBox1 = new TextBox();
+            form1BindingSource = new BindingSource(components);
             textBox2 = new TextBox();
+            form1BindingSource1 = new BindingSource(components);
+            taschenrechnerBindingSource = new BindingSource(components);
+            ((System.ComponentModel.ISupportInitialize)form1BindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)form1BindingSource1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)taschenrechnerBindingSource).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -74,6 +81,7 @@
             button1.TabIndex = 3;
             button1.Text = "+";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -104,17 +112,33 @@
             // 
             // textBox1
             // 
+            textBox1.DataBindings.Add(new Binding("Text", taschenrechnerBindingSource, "Zahl1", true));
             textBox1.Location = new Point(173, 51);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 7;
             // 
+            // form1BindingSource
+            // 
+            form1BindingSource.DataSource = this;
+            form1BindingSource.Position = 0;
+            // 
             // textBox2
             // 
+            textBox2.DataBindings.Add(new Binding("Text", form1BindingSource1, "Zahl2", true, DataSourceUpdateMode.OnPropertyChanged, null, "N2"));
             textBox2.Location = new Point(173, 98);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 8;
+            // 
+            // form1BindingSource1
+            // 
+            form1BindingSource1.DataSource = this;
+            form1BindingSource1.Position = 0;
+            // 
+            // taschenrechnerBindingSource
+            // 
+            taschenrechnerBindingSource.DataSource = typeof(Taschenrechner);
             // 
             // Form1
             // 
@@ -132,6 +156,9 @@
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)form1BindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)form1BindingSource1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)taschenrechnerBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +174,8 @@
         private Button button4;
         private TextBox textBox1;
         private TextBox textBox2;
+        private BindingSource form1BindingSource;
+        private BindingSource form1BindingSource1;
+        private BindingSource taschenrechnerBindingSource;
     }
 }

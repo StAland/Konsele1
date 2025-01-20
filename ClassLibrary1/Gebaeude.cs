@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Konsele1
+﻿namespace ClassLibrary1
 {
     public enum Gebauedefarbe
     {
@@ -15,17 +9,17 @@ namespace Konsele1
     }
     public abstract class Gebaeude : IAufschliessbar
     {
-        public int Flaeche {set; get;}
-        public Gebauedefarbe Farbe { set; get;}
-        
+        public int Flaeche { set; get; }
+        public Gebauedefarbe Farbe { set; get; }
 
-        public Gebaeude(int flaeche, Gebauedefarbe farbe) 
+
+        public Gebaeude(int flaeche, Gebauedefarbe farbe)
         {
             Flaeche = flaeche;
             Farbe = farbe;
         }
 
-        public Gebaeude(int flaeche) 
+        public Gebaeude(int flaeche)
         {
             Flaeche = flaeche;
             Farbe = Gebauedefarbe.weiss;
