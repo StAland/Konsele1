@@ -14,22 +14,35 @@ namespace Konsole1
     internal class Program
     {
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            List<Person> personen = null;
-            var rootAttribut = new XmlRootAttribute("personen");
-            var serialisierer = new XmlSerializer(typeof(List<Person>), rootAttribut);
-            using (var filestream = new FileStream("Persons.xml", FileMode.Open))
-            {
-                personen = (List<Person>)serialisierer.Deserialize(filestream);
+            Task<int> task1 = SimulateCalculationAsync(5); // Quadrieren einer Zahl
+            Task<string> task2 = SimulateConversionAsync("Hallo Welt"); // String in Großbuchstaben
+            Task task3 = SimulateMessageWritingAsync("Nachricht wird geschrieben..."); // Schreiben einer Nachricht
 
-            }
+            await Task.WhenAll(task1, task2, task3);
 
-            foreach (var person in personen)
-            {
-                Console.WriteLine($"{person.ID}: {person.Vorname} {person.Name}");
-            }
+            Console.WriteLine($"Berechnungsergebnis: {await task1}");
+            Console.WriteLine($"Konvertierungsergebnis: {await task2}");
         }
-            
+
+
+        static async Task<int> SimulateCalculationAsync(int number)
+        {
+            await Task.Delay(1000); // Simulierte Verzögerung
+            return number * number;
+        }
+
+        static async Task<string> SimulateConversionAsync(string input)
+        {
+            await Task.Delay(2000); // Simulierte Verzögerung
+            return input.ToUpper();
+        }
+
+        static async Task SimulateMessageWritingAsync(string message)
+        {
+            await Task.Delay(3000); // Simulierte Verzögerung
+            Console.WriteLine(message);
+        }
     }
 }
