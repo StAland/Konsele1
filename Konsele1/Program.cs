@@ -16,20 +16,24 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            IProgress<int> progress = new Progress<int>(percent =>
+            bool conditionMet = false;
+            Task.Run(async () =>
             {
-                Console.WriteLine($"Fortschritt: {percent}");
+                await Task.Delay(5000);
+                conditionMet = true;
+                Console.WriteLine("Bedingung erfüllt");
             });
-            await SimulateProgress(progress);
-            Console.WriteLine("Bearbeitung abgeschlossen");
+
+            Console.WriteLine("Warten auf Bedingung");
+            await WartenAufBedingung(() => conditionMet);
+            Console.WriteLine("Programm beendet");
         }
 
-        static async Task SimulateProgress(IProgress<int> progress)
+        static async Task WartenAufBedingung(Func<bool> condition)
         {
-            for (int i = 0; i <= 100; i+=5)
+            while (!condition()) 
             {
-                await Task.Delay(500);
-                progress.Report(i);
+                await Task.Delay(200);
             }
         }
 
