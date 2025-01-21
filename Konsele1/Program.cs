@@ -16,25 +16,38 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            bool conditionMet = false;
-            Task.Run(async () =>
+            using CancellationTokenSource cts = new CancellationTokenSource();
+            CancellationToken cancellationToken = cts.Token;
+
+            Console.WriteLine("Drücken Sie eine Taste um abzubrechen");
+
+            Task cancelTask = Task.Run(() =>
             {
-                await Task.Delay(5000);
-                conditionMet = true;
-                Console.WriteLine("Bedingung erfüllt");
+                Console.ReadKey();
+                cts.Cancel();
             });
 
-            Console.WriteLine("Warten auf Bedingung");
-            await WartenAufBedingung(() => conditionMet);
-            Console.WriteLine("Programm beendet");
+            try
+            {
+                await RunWithCancellationAsync(cancellationToken);
+            }
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine("Abgebrochen");
+            }
         }
 
-        static async Task WartenAufBedingung(Func<bool> condition)
+        static async Task RunWithCancellationAsync(CancellationToken token)
         {
-            while (!condition()) 
+            for (int i = 0; i <= 100; i++)
             {
-                await Task.Delay(200);
+                token.ThrowIfCancellationRequested();
+
+                Console.WriteLine($"Schritt {i}");
+                await Task.Delay(100, token); // Simulierte Verzögerung
             }
+
+            Console.WriteLine("Operation abgeschlossen!");
         }
 
     }
