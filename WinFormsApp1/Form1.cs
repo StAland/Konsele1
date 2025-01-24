@@ -37,12 +37,34 @@ namespace WinFormsApp1
         private void button3_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2(label1.Text);
-            
+
             var dialogresult = form2.ShowDialog();
             if (dialogresult == DialogResult.OK)
             {
                 label1.Text = form2.TbText;
-                
+
+            }
+        }
+
+        private void speichernToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Speichern";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                //speichern
+            }
+        }
+
+        private void ladenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (var openFileDialog = new OpenFileDialog())
+            {
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show(openFileDialog.FileName);
+                    //laden
+                }
             }
         }
     }

@@ -28,34 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            taschenrechnerBindingSource = new BindingSource(components);
-            form1BindingSource = new BindingSource(components);
-            form1BindingSource1 = new BindingSource(components);
             button1 = new Button();
             button2 = new Button();
             listBox1 = new ListBox();
             listBox2 = new ListBox();
             button3 = new Button();
             label1 = new Label();
-            ((System.ComponentModel.ISupportInitialize)taschenrechnerBindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)form1BindingSource).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)form1BindingSource1).BeginInit();
+            menuStrip1 = new MenuStrip();
+            dateiToolStripMenuItem = new ToolStripMenuItem();
+            speichernToolStripMenuItem = new ToolStripMenuItem();
+            ladenToolStripMenuItem = new ToolStripMenuItem();
+            beendenToolStripMenuItem = new ToolStripMenuItem();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
-            // 
-            // taschenrechnerBindingSource
-            // 
-            taschenrechnerBindingSource.DataSource = typeof(Taschenrechner);
-            // 
-            // form1BindingSource
-            // 
-            form1BindingSource.DataSource = this;
-            form1BindingSource.Position = 0;
-            // 
-            // form1BindingSource1
-            // 
-            form1BindingSource1.DataSource = this;
-            form1BindingSource1.Position = 0;
             // 
             // button1
             // 
@@ -114,6 +99,42 @@
             label1.TabIndex = 5;
             label1.Text = "label1";
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { dateiToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 6;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // dateiToolStripMenuItem
+            // 
+            dateiToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { speichernToolStripMenuItem, ladenToolStripMenuItem, beendenToolStripMenuItem });
+            dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            dateiToolStripMenuItem.Size = new Size(46, 20);
+            dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // speichernToolStripMenuItem
+            // 
+            speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
+            speichernToolStripMenuItem.Size = new Size(180, 22);
+            speichernToolStripMenuItem.Text = "Speichern";
+            speichernToolStripMenuItem.Click += speichernToolStripMenuItem_Click;
+            // 
+            // ladenToolStripMenuItem
+            // 
+            ladenToolStripMenuItem.Name = "ladenToolStripMenuItem";
+            ladenToolStripMenuItem.Size = new Size(180, 22);
+            ladenToolStripMenuItem.Text = "Laden";
+            ladenToolStripMenuItem.Click += ladenToolStripMenuItem_Click;
+            // 
+            // beendenToolStripMenuItem
+            // 
+            beendenToolStripMenuItem.Name = "beendenToolStripMenuItem";
+            beendenToolStripMenuItem.Size = new Size(180, 22);
+            beendenToolStripMenuItem.Text = "Beenden";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -125,24 +146,26 @@
             Controls.Add(listBox1);
             Controls.Add(button2);
             Controls.Add(button1);
+            Controls.Add(menuStrip1);
             Name = "Form1";
             Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)taschenrechnerBindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)form1BindingSource).EndInit();
-            ((System.ComponentModel.ISupportInitialize)form1BindingSource1).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private BindingSource form1BindingSource;
-        private BindingSource form1BindingSource1;
-        private BindingSource taschenrechnerBindingSource;
         private ListBox listBox2;
         private ListBox listBox1;
         private Button button2;
         private Button button1;
         private Label label1;
         private Button button3;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem dateiToolStripMenuItem;
+        private ToolStripMenuItem speichernToolStripMenuItem;
+        private ToolStripMenuItem ladenToolStripMenuItem;
+        private ToolStripMenuItem beendenToolStripMenuItem;
     }
 }
