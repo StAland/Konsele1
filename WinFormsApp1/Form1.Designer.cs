@@ -36,6 +36,8 @@
             button2 = new Button();
             listBox1 = new ListBox();
             listBox2 = new ListBox();
+            button3 = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)taschenrechnerBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)form1BindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)form1BindingSource1).BeginInit();
@@ -93,11 +95,32 @@
             listBox2.Size = new Size(120, 94);
             listBox2.TabIndex = 3;
             // 
+            // button3
+            // 
+            button3.Location = new Point(504, 323);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 4;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(107, 331);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 5;
+            label1.Text = "label1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(label1);
+            Controls.Add(button3);
             Controls.Add(listBox2);
             Controls.Add(listBox1);
             Controls.Add(button2);
@@ -108,6 +131,7 @@
             ((System.ComponentModel.ISupportInitialize)form1BindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)form1BindingSource1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -118,5 +142,7 @@
         private ListBox listBox1;
         private Button button2;
         private Button button1;
+        private Label label1;
+        private Button button3;
     }
 }

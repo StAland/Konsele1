@@ -33,5 +33,17 @@ namespace WinFormsApp1
                 listBox2.Items.Add(item);
             }
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2(label1.Text);
+            
+            var dialogresult = form2.ShowDialog();
+            if (dialogresult == DialogResult.OK)
+            {
+                label1.Text = form2.TbText;
+                
+            }
+        }
     }
 }

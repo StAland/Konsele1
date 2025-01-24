@@ -14,7 +14,7 @@ namespace ClassLibrary1
             "Eintrag 1",
             "Eintrag 2",
             "Eintrag 3",
-            "Eintrag 4",
+            "Eintrag 4"
         };
 
         // Synchrone Methode zum Abrufen von Daten
@@ -35,7 +35,7 @@ namespace ClassLibrary1
 
 
             // Simuliere Verzögerung (z. B. asynchrone Datenbankabfrage)
-            await Task.Delay(20000);
+            await Task.Delay(10000);
 
 
             return _mockData;
