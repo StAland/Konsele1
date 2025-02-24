@@ -16,10 +16,18 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            var pizza = new PizzaBuilder()
-                .SetSize(10)
-                .SetCrust("dick")
-                .Build();
+            var pizzabuilder = new Pizza.Builder() 
+            { 
+                HasMushrooms = true,
+                Size = 100,
+                Cheese = "Gouada",
+                HasPinapple = false,
+                Crust = "dick"
+            };
+            var pizza = pizzabuilder.Build();
+            var size = pizza.Size;
+
+
         }
 
 
