@@ -16,39 +16,12 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            using CancellationTokenSource cts = new CancellationTokenSource();
-            CancellationToken cancellationToken = cts.Token;
-
-            Console.WriteLine("Drücken Sie eine Taste um abzubrechen");
-
-            Task cancelTask = Task.Run(() =>
-            {
-                Console.ReadKey();
-                cts.Cancel();
-            });
-
-            try
-            {
-                await RunWithCancellationAsync(cancellationToken);
-            }
-            catch (OperationCanceledException)
-            {
-                Console.WriteLine("Abgebrochen");
-            }
+            var pizza = new PizzaBuilder()
+                .SetSize(10)
+                .SetCrust("dick")
+                .Build();
         }
 
-        static async Task RunWithCancellationAsync(CancellationToken token)
-        {
-            for (int i = 0; i <= 100; i++)
-            {
-                token.ThrowIfCancellationRequested();
-
-                Console.WriteLine($"Schritt {i}");
-                await Task.Delay(100, token); // Simulierte Verzögerung
-            }
-
-            Console.WriteLine("Operation abgeschlossen!");
-        }
 
     }
 }
