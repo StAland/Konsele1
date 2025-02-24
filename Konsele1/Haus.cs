@@ -5,6 +5,7 @@ namespace Konsele1
     public class Haus : Gebaeude
     {
         private int _rooms;
+        private ILogging _logger;
         public int Rooms
         {
             get
@@ -20,14 +21,16 @@ namespace Konsele1
             }
         }
 
-        public Haus(int flaeche, Gebauedefarbe farbe, int rooms) : base(flaeche, farbe) 
+        public Haus(int flaeche, Gebauedefarbe farbe, int rooms, ILogging logger) : base(flaeche, farbe) 
         {
             _rooms = rooms;
+            _logger = logger;
         }
 
-        public Haus(int flaeche, int rooms) : base(flaeche)
+        public Haus(int flaeche, int rooms, ILogging logger) : base(flaeche)
         {
             _rooms = rooms;
+            _logger = logger;
         }
 
         public override void ZeigeGebauede()
@@ -39,6 +42,7 @@ namespace Konsele1
         public override void Aufschliessen()
         {
             Console.WriteLine("Das Haus wurde aufgeschlossen");
+            _logger.Log("Das Haus wurde aufgeschlossen");
         }
     }
 }
