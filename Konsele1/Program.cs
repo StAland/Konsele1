@@ -16,16 +16,9 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            Parallel.For(1, 6, i =>
-            {
-                Console.WriteLine($"Task {i} wird ausgeführt");
-            });
-
-            var names = new List<string> { "Alice", "Bob", "Frank"};
-            Parallel.ForEach(names, name =>
-            {
-                Console.WriteLine(name);
-            });
+            Thread t = new Thread(PrintNumbers);
+            t.Start(); // Startet den neuen Thread
+            PrintNumbers(); // Wird im Hauptthread ausgeführt
 
         }
 
