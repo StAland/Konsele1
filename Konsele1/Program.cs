@@ -16,9 +16,10 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            Thread t = new Thread(PrintNumbers);
-            t.Start(); // Startet den neuen Thread
-            PrintNumbers(); // Wird im Hauptthread ausgeführt
+            Task t1 = Task.Run(() => PrintNumbers());
+            Task t2 = Task.Run(() => PrintNumbers());
+
+            await Task.WhenAll(t1, t2); // Wartet auf beide Tasks
 
         }
 
