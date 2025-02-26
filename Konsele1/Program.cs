@@ -16,20 +16,27 @@ namespace Konsole1
 
         static async Task Main(string[] args)
         {
-            var pizzabuilder = new Pizza.Builder() 
-            { 
-                HasMushrooms = true,
-                Size = 100,
-                Cheese = "Gouada",
-                HasPinapple = false,
-                Crust = "dick"
-            };
-            var pizza = pizzabuilder.Build();
-            var size = pizza.Size;
+            Parallel.For(1, 6, i =>
+            {
+                Console.WriteLine($"Task {i} wird ausgeführt");
+            });
 
+            var names = new List<string> { "Alice", "Bob", "Frank"};
+            Parallel.ForEach(names, name =>
+            {
+                Console.WriteLine(name);
+            });
 
         }
 
+        static void PrintNumbers()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine($"{Thread.CurrentThread.ManagedThreadId}: {i}");
+                Thread.Sleep(1000);
+            }
+        }
 
     }
 }
