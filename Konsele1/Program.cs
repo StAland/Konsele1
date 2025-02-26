@@ -13,24 +13,34 @@ namespace Konsole1
 {
     internal class Program
     {
+        static int counter = 0;
+        static object locker = new object();
 
         static async Task Main(string[] args)
         {
-            Task t1 = Task.Run(() => PrintNumbers());
-            Task t2 = Task.Run(() => PrintNumbers());
+            Thread t1 = new Thread(Increment);
+            Thread t2 = new Thread(Increment);
 
-            await Task.WhenAll(t1, t2); // Wartet auf beide Tasks
+            t1.Start();
+            t2.Start();
 
+            t1.Join();
+            t2.Join();
+
+            Console.WriteLine($"Finaler Counter-Wert: {counter}");
         }
 
-        static void PrintNumbers()
+        static void Increment()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 1000000; i++)
             {
-                Console.WriteLine($"{Thread.CurrentThread.ManagedThreadId}: {i}");
-                Thread.Sleep(1000);
+                lock (locker)
+                {
+                    counter++;
+                }               
             }
         }
+
 
     }
 }
