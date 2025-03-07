@@ -23,6 +23,10 @@ namespace ClassLibrary1
 
         public int Subtrahieren(int a, int b)
         {
+            if (_subtrahierenService == null)
+            {
+                return a - b;
+            }
             return _subtrahierenService.Subtrahieren(a,b);
         }
 
