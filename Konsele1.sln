@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsApp1", "WinFormsApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{7A7C676A-4EA0-4994-9C37-2784B83F2163}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RechnerTests", "RechnerTests\RechnerTests.csproj", "{A92C7A5E-7CB8-4266-8551-22433CE86D67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RechnerTests", "RechnerTests\RechnerTests.csproj", "{A92C7A5E-7CB8-4266-8551-22433CE86D67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortierAlgorithmen", "SortierAlgorithmen\SortierAlgorithmen.csproj", "{834DB3BF-8DA4-4C59-BC13-B6FD2F43992E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A92C7A5E-7CB8-4266-8551-22433CE86D67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A92C7A5E-7CB8-4266-8551-22433CE86D67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A92C7A5E-7CB8-4266-8551-22433CE86D67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834DB3BF-8DA4-4C59-BC13-B6FD2F43992E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834DB3BF-8DA4-4C59-BC13-B6FD2F43992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834DB3BF-8DA4-4C59-BC13-B6FD2F43992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834DB3BF-8DA4-4C59-BC13-B6FD2F43992E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
