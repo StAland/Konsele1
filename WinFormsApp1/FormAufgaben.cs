@@ -26,7 +26,7 @@ namespace WinFormsApp1
             aufgabe.AufgabeFertig -= SetStatusLabel;
         }
 
-        private void SetStatusLabel(object sender, string message)
+        private void SetStatusLabel(object? sender, string message)
         {
             lblStatus.Text = message;
         }

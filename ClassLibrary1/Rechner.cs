@@ -8,7 +8,7 @@ namespace ClassLibrary1
 {
     public class Rechner
     {
-        private ISubtrahierenService _subtrahierenService;
+        private ISubtrahierenService? _subtrahierenService;
         public Rechner(ISubtrahierenService subtrahierenService)
         {
             _subtrahierenService = subtrahierenService;

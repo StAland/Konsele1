@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Serilog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,10 @@ namespace ClassLibrary1
     public class Aufgabe
     {
         private int _duration;
+        private Logger _logger = new Logger("aufgabenlog.txt");
 
-        public event EventHandler<string> AufgabeFertig;
+        public event EventHandler<string>? AufgabeFertig;
+        
 
         public Aufgabe(int duration)
         {
@@ -21,6 +24,7 @@ namespace ClassLibrary1
         {
             Thread.Sleep(_duration * 1000);
             AufgabeFertig?.Invoke(this, $"Aufgabe wurde in {_duration} Sekunden abgearbeitet");
+            _logger.Log($"Aufgabe wurde in {_duration} Sekunden abgearbeitet");
         }
     }
 }
