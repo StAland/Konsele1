@@ -8,7 +8,6 @@ namespace Trees
 {
     public class GraphNode
     {
-
         public string Name { get; }
 
         public GraphNode(string name)
@@ -17,5 +16,15 @@ namespace Trees
         }
 
         public override string ToString() => Name;
+
+        public override bool Equals(object obj)
+        {
+            return obj is GraphNode other && Name == other.Name;
+        }
+
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
     }
 }
